@@ -1,0 +1,14 @@
+# Discretization File created on 13/09/2023 by ModelMuse version 5.1.1.0.
+# ISD
+# Upper left corner: (0, 0)
+# Lower left corner: (0, -15000)
+# Upper right corner: (15000, 0)
+# Lower right corner: (15000, -15000)
+# Grid angle (in degrees counterclockwise): 0
+     1    15    15     1     4     2 # NLAY, NROW, NCOL, NPER, ITMUNI, LENUNI
+     0 # LAYCB
+CONSTANT     1.000000000000E+003  # DELR
+CONSTANT     1.000000000000E+003  # DELC
+CONSTANT     0.000000000000E+000  # TOP
+CONSTANT    -1.000000000000E+002  # BOTM, Upper Aquifer
+  3.650000000000E+003     19  1.500000000000E+000  TR # PERLEN NSTP TSMULT Ss/tr (Stress period 1)
