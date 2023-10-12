@@ -1,0 +1,1792 @@
+                                  MODFLOW-2005     
+      U.S. GEOLOGICAL SURVEY MODULAR FINITE-DIFFERENCE GROUND-WATER FLOW MODEL
+                            VERSION 1.12.00 2/3/2017
+
+ LIST FILE: ISD_test.lst
+                         UNIT   11
+
+ OPENING ISD_test.cbc
+ FILE TYPE:DATA(BINARY)   UNIT    9   STATUS:REPLACE
+ FORMAT:BINARY                 ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.dis
+ FILE TYPE:DIS   UNIT   12   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.bas
+ FILE TYPE:BAS6   UNIT   13   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.oc
+ FILE TYPE:OC   UNIT   39   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.fhd
+ FILE TYPE:DATA   UNIT   37   STATUS:REPLACE
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.fdn
+ FILE TYPE:DATA   UNIT   38   STATUS:REPLACE
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.pcg
+ FILE TYPE:PCG   UNIT   18   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.lpf
+ FILE TYPE:LPF   UNIT   14   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.chd
+ FILE TYPE:CHD   UNIT   17   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ OPENING ISD_test.wel
+ FILE TYPE:WEL   UNIT   20   STATUS:OLD    
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+
+ BAS -- BASIC PACKAGE, VERSION 7, 5/2/2005 INPUT READ FROM UNIT   13
+ 
+ MODFLOW was compiled using mixed precision
+ Precision of REAL variables:           6
+ Precision of DOUBLE PRECISION variables:          15
+
+ DISCRETIZATION INPUT DATA READ FROM UNIT   12
+ # Discretization File created on 13/09/2023 by ModelMuse version 5.1.1.0.
+ # ISD
+ # Upper left corner: (0, 0)
+ # Lower left corner: (0, -15000)
+ # Upper right corner: (15000, 0)
+ # Lower right corner: (15000, -15000)
+ # Grid angle (in degrees counterclockwise): 0
+    1 LAYERS        15 ROWS        15 COLUMNS
+    1 STRESS PERIOD(S) IN SIMULATION
+ MODEL TIME UNIT IS DAYS
+ MODEL LENGTH UNIT IS METERS
+  Confining bed flag for each layer:
+   0
+
+                     DELR =   1000.00    
+
+                     DELC =   1000.00    
+
+ TOP ELEVATION OF LAYER 1 =   0.00000    
+
+   MODEL LAYER BOTTOM EL. =  -100.000     FOR LAYER   1
+
+
+ STRESS PERIOD     LENGTH       TIME STEPS     MULTIPLIER FOR DELT    SS FLAG
+ ----------------------------------------------------------------------------
+        1         3650.000         19                    1.500         TR
+
+ TRANSIENT SIMULATION
+
+
+
+ 
+ # ISD                                                                           
+ # Basic Package file created on 13/09/2023 by ModelMuse version 5.1.1.0.        
+ # Number of active cells = 225.
+ THE FREE FORMAT OPTION HAS BEEN SELECTED
+ THE PRINTTIME OPTION HAS BEEN SELECTED
+ CALCULATE FLOW BETWEEN ADJACENT CONSTANT-HEAD CELLS
+
+           BOUNDARY ARRAY =              1 FOR LAYER   1
+
+ AQUIFER HEAD WILL BE SET TO -1.00000E+20 AT ALL NO-FLOW NODES (IBOUND=0).
+
+             INITIAL HEAD =   0.00000     FOR LAYER   1
+ # Output Control file created on 13/09/2023 by ModelMuse version 5.1.1.0.
+
+ OUTPUT CONTROL IS SPECIFIED ONLY AT TIME STEPS FOR WHICH OUTPUT IS DESIRED
+ HEADS WILL BE SAVED WITH FORMAT: (10(1X1PE13.5))     
+ SAVED HEADS WILL BE LABELED
+ DRAWDOWN WILL BE SAVED WITH FORMAT: (10(1X1PE13.5))     
+ SAVED DRAWDOWN WILL BE LABELED
+ COMPACT CELL-BY-CELL BUDGET FILES WILL BE WRITTEN
+ AUXILIARY DATA WILL BE SAVED IN CELL-BY-CELL BUDGET FILES
+ HEAD PRINT FORMAT CODE IS   0    DRAWDOWN PRINT FORMAT CODE IS   0
+ HEADS WILL BE SAVED ON UNIT   37    DRAWDOWNS WILL BE SAVED ON UNIT   38
+
+ LPF -- LAYER-PROPERTY FLOW PACKAGE, VERSION 7, 5/2/2005
+         INPUT READ FROM UNIT   14
+ # LPF: Layer Property Flow package file created on 13/09/2023 by ModelMuse version 5.1.1.0.
+ CELL-BY-CELL FLOWS WILL BE SAVED ON UNIT    9
+ HEAD AT CELLS THAT CONVERT TO DRY= -2.00000E+20
+ No named parameters
+
+   LAYER FLAGS:
+ LAYER       LAYTYP        LAYAVG         CHANI        LAYVKA        LAYWET
+ ---------------------------------------------------------------------------
+    1             0             0    -1.000E+00             0             0
+
+   INTERPRETATION OF LAYER FLAGS:
+                        INTERBLOCK     HORIZONTAL    DATA IN
+         LAYER TYPE   TRANSMISSIVITY   ANISOTROPY   ARRAY VKA   WETTABILITY
+ LAYER      (LAYTYP)      (LAYAVG)       (CHANI)      (LAYVKA)      (LAYWET)
+ ---------------------------------------------------------------------------
+    1      CONFINED      HARMONIC      VARIABLE    VERTICAL K  NON-WETTABLE
+
+ WETTING CAPABILITY IS NOT ACTIVE IN ANY LAYER
+
+    HYD. COND. ALONG ROWS =   1.00000     FOR LAYER   1
+
+   HORIZ. ANI. (COL./ROW) =   1.00000     FOR LAYER   1
+
+      VERTICAL HYD. COND. =   1.00000     FOR LAYER   1
+
+         SPECIFIC STORAGE =  2.000000E-06 FOR LAYER   1
+
+ WEL -- WELL PACKAGE, VERSION 7, 5/2/2005 INPUT READ FROM UNIT   20
+ # WEL: Well package file created on 13/09/2023 by ModelMuse version 5.1.1.0.
+ No named parameters
+ MAXIMUM OF      1 ACTIVE WELLS AT ONE TIME
+ CELL-BY-CELL FLOWS WILL BE SAVED ON UNIT    9
+ AUXILIARY WELL VARIABLE: IFACE           
+
+
+     0 Well parameters
+
+ CHD -- TIME-VARIANT SPECIFIED-HEAD OPTION, VERSION 7, 5/2/2005
+ INPUT READ FROM UNIT   17
+ # CHD: Time-Variant Specified-Head package file created on 13/09/2023 by ModelMuse version 5.1.1.0.
+ No named parameters
+ MAXIMUM OF     15 TIME-VARIANT SPECIFIED-HEAD CELLS AT ONE TIME
+ AUXILIARY CHD VARIABLE: IFACE           
+
+
+     0 TIME-VARIANT SPECIFIED-HEAD PARAMETERS
+
+ PCG -- CONJUGATE-GRADIENT SOLUTION PACKAGE, VERSION 7, 5/2/2005
+ # PCG: Preconditioned Conjugate Gradient package file created on 13/09/2023 by ModelMuse version 5.1.1.0.
+ MAXIMUM OF     20 CALLS OF SOLUTION ROUTINE
+ MAXIMUM OF     30 INTERNAL ITERATIONS PER CALL TO SOLUTION ROUTINE
+ MATRIX PRECONDITIONING TYPE :    1
+
+
+
+                                    SOLUTION BY THE CONJUGATE-GRADIENT METHOD
+                                   -------------------------------------------
+                    MAXIMUM NUMBER OF CALLS TO PCG ROUTINE =       20
+                        MAXIMUM ITERATIONS PER CALL TO PCG =       30
+                               MATRIX PRECONDITIONING TYPE =        1
+        RELAXATION FACTOR (ONLY USED WITH PRECOND. TYPE 1) =    0.10000E+01
+ PARAMETER OF POLYNOMIAL PRECOND. = 2 (2) OR IS CALCULATED :        1
+                         HEAD CHANGE CRITERION FOR CLOSURE =    0.10000E-02
+                     RESIDUAL CHANGE CRITERION FOR CLOSURE =    0.10000E-02
+            PCG HEAD AND RESIDUAL CHANGE PRINTOUT INTERVAL =        1
+     PRINTING FROM SOLVER IS LIMITED(1) OR SUPPRESSED (>1) =        0
+                            STEADY-STATE DAMPING PARAMETER =    0.10000E+01
+                               TRANSIENT DAMPING PARAMETER =    0.10000E+01
+1
+                            STRESS PERIOD NO.    1, LENGTH =   3650.000    
+                            -----------------------------------------------
+
+                              NUMBER OF TIME STEPS =    19
+
+                               MULTIPLIER FOR DELT =     1.500
+
+                            INITIAL TIME STEP SIZE =  0.8236162    
+
+ WELL NO.  LAYER   ROW   COL   STRESS RATE         IFACE           
+ ------------------------------------------------------------------
+      1      1      8      8      -600.0           0.000    
+
+      1 WELL 
+
+ CHD NO.   LAYER   ROW   COL    START HEAD        END HEAD         IFACE           
+ ----------------------------------------------------------------------------------
+      1      1      1      1       0.000           0.000           0.000    
+      2      1      1      2       0.000           0.000           0.000    
+      3      1      1      3       0.000           0.000           0.000    
+      4      1      1      4       0.000           0.000           0.000    
+      5      1      1      5       0.000           0.000           0.000    
+      6      1      1      6       0.000           0.000           0.000    
+      7      1      1      7       0.000           0.000           0.000    
+      8      1      1      8       0.000           0.000           0.000    
+      9      1      1      9       0.000           0.000           0.000    
+     10      1      1     10       0.000           0.000           0.000    
+     11      1      1     11       0.000           0.000           0.000    
+     12      1      1     12       0.000           0.000           0.000    
+     13      1      1     13       0.000           0.000           0.000    
+     14      1      1     14       0.000           0.000           0.000    
+     15      1      1     15       0.000           0.000           0.000    
+
+
+     15 TIME-VARIANT SPECIFIED-HEAD CELLS
+ 
+ SOLVING FOR HEAD 
+
+
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   1 IN STRESS PERIOD    1
+     5 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -1.049      0 -0.2999E-01  0 -0.7261E-03  0 -0.1440E-04  1 -0.4122E-06
+   (  1,  8,  8)  (  1,  9,  7)  (  1,  6, 10)  (  1,  5, 11)  (  1,  5, 11)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1   17.14      0  0.4216      0  0.8454E-02  0  0.3190E-03  1  0.1491E-04
+   (  1,  9,  7)  (  1,  6, 10)  (  1,  5, 11)  (  1, 11,  5)  (  1, 12,  4)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    1
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  1, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  1, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  1, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  1, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  1, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    1, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    1, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    1, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =         494.1479               STORAGE =         599.9734
+       CONSTANT HEAD =       2.1806E-02         CONSTANT HEAD =       2.6476E-02
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =         494.1697              TOTAL IN =         599.9999
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =         494.1697                 WELLS =         600.0000
+
+           TOTAL OUT =         494.1697             TOTAL OUT =         600.0000
+
+            IN - OUT =      -6.1035E-05              IN - OUT =      -6.1035E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    1 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH  71160.      1186.0      19.767     0.82362     2.25494E-03
+ STRESS PERIOD TIME  71160.      1186.0      19.767     0.82362     2.25494E-03
+         TOTAL TIME  71160.      1186.0      19.767     0.82362     2.25494E-03
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   2 IN STRESS PERIOD    1
+     5 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.6432      0 -0.2443E-01  0 -0.7378E-03  0 -0.3394E-04  1 -0.1464E-05
+   (  1,  8,  8)  (  1,  7,  9)  (  1,  5, 10)  (  1,  4, 12)  (  1,  2, 13)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1   10.09      0  0.3051      0  0.8985E-02  0  0.5255E-03  1  0.4474E-04
+   (  1,  7,  9)  (  1,  6, 10)  (  1,  4, 12)  (  1, 11,  5)  (  1,  4, 12)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    2
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  2, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  2, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  2, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  2, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  2, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    2, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    2, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    2, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =        1234.9645               STORAGE =         599.6455
+       CONSTANT HEAD =           0.4592         CONSTANT HEAD =           0.3541
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =        1235.4237              TOTAL IN =         599.9996
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =        1235.4243                 WELLS =         600.0000
+
+           TOTAL OUT =        1235.4243             TOTAL OUT =         600.0000
+
+            IN - OUT =      -6.1035E-04              IN - OUT =      -4.2725E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    2 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 1.06741E+05  1779.0      29.650      1.2354     3.38241E-03
+ STRESS PERIOD TIME 1.77901E+05  2965.0      49.417      2.0590     5.63735E-03
+         TOTAL TIME 1.77901E+05  2965.0      49.417      2.0590     5.63735E-03
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   3 IN STRESS PERIOD    1
+     6 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.4217      0 -0.1606E-01  0 -0.1084E-02  0 -0.6326E-04  0 -0.5788E-05
+   (  1,  8,  8)  (  1,  6,  9)  (  1,  5, 11)  (  1,  3, 12)  (  1, 14,  1)
+  1 -0.2737E-06
+   (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1   4.592      0  0.2102      0  0.1157E-01  0  0.1442E-02  0  0.8970E-04
+   (  1,  7,  9)  (  1,  5, 11)  (  1,  4, 12)  (  1,  2, 13)  (  1,  2, 15)
+  1  0.6782E-05
+   (  1,  2, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    3
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  3, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  3, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  3, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  3, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  3, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    3, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    3, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    3, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =        2342.6870               STORAGE =         597.7556
+       CONSTANT HEAD =           4.6182         CONSTANT HEAD =           2.2443
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =        2347.3052              TOTAL IN =         599.9999
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =        2347.3062                 WELLS =         600.0000
+
+           TOTAL OUT =        2347.3062             TOTAL OUT =         600.0000
+
+            IN - OUT =      -9.7656E-04              IN - OUT =      -1.2207E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    3 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 1.60111E+05  2668.5      44.475      1.8531     5.07361E-03
+ STRESS PERIOD TIME 3.38012E+05  5633.5      93.892      3.9122     1.07110E-02
+         TOTAL TIME 3.38012E+05  5633.5      93.892      3.9122     1.07110E-02
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   4 IN STRESS PERIOD    1
+     6 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.3138      0 -0.1554E-01  0 -0.1270E-02  0 -0.1416E-03  0 -0.1451E-04
+   (  1,  8,  8)  (  1, 10,  6)  (  1, 12,  4)  (  1, 13,  1)  (  1, 15,  1)
+  1 -0.6732E-06
+   (  1,  2, 15)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -2.920      0  0.1608      0  0.2576E-01  0  0.3058E-02  0  0.2430E-03
+   (  1,  8,  8)  (  1,  4, 11)  (  1,  2, 12)  (  1,  2, 14)  (  1,  2, 15)
+  1  0.2490E-04
+   (  1,  2, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    4
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  4, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  4, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  4, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  4, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  4, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    4, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    4, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    4, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =        3985.6943               STORAGE =         591.0727
+       CONSTANT HEAD =          29.4331         CONSTANT HEAD =           8.9272
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =        4015.1274              TOTAL IN =         599.9999
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =        4015.1289                 WELLS =         600.0000
+
+           TOTAL OUT =        4015.1289             TOTAL OUT =         600.0000
+
+            IN - OUT =      -1.4648E-03              IN - OUT =      -1.2207E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    4 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 2.40166E+05  4002.8      66.713      2.7797     7.61042E-03
+ STRESS PERIOD TIME 5.78179E+05  9636.3      160.61      6.6919     1.83214E-02
+         TOTAL TIME 5.78179E+05  9636.3      160.61      6.6919     1.83214E-02
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   5 IN STRESS PERIOD    1
+     6 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.2635      0 -0.1423E-01  0 -0.1715E-02  0 -0.2784E-03  0 -0.2380E-04
+   (  1,  8,  8)  (  1, 11,  6)  (  1, 12,  1)  (  1, 15,  1)  (  1,  2, 15)
+  1  0.2386E-05
+   (  1,  9,  2)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -1.720      0  0.2180      0  0.4213E-01  0  0.5794E-02  0 -0.6202E-03
+   (  1,  8,  8)  (  1,  2, 11)  (  1,  2, 13)  (  1,  2, 14)  (  1,  9,  2)
+  1  0.8599E-04
+   (  1,  2, 15)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    5
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  5, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  5, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  5, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  5, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  5, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    5, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    5, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    5, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =        6382.1626               STORAGE =         574.7537
+       CONSTANT HEAD =         134.6976         CONSTANT HEAD =          25.2460
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =        6516.8604              TOTAL IN =         599.9997
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =        6516.8628                 WELLS =         600.0000
+
+           TOTAL OUT =        6516.8628             TOTAL OUT =         600.0000
+
+            IN - OUT =      -2.4414E-03              IN - OUT =      -3.0518E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    5 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 3.60250E+05  6004.2      100.07      4.1696     1.14156E-02
+ STRESS PERIOD TIME 9.38428E+05  15640.      260.67      10.861     2.97370E-02
+         TOTAL TIME 9.38428E+05  15640.      260.67      10.861     2.97370E-02
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   6 IN STRESS PERIOD    1
+     7 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.2404      0 -0.1505E-01  0 -0.2662E-02  0 -0.3027E-03  0 -0.3771E-04
+   (  1,  8,  8)  (  1, 12,  5)  (  1, 13,  1)  (  1,  2, 15)  (  1,  2, 15)
+  0  0.6914E-05  1  0.7636E-06
+   (  1, 10,  2)  (  1,  8,  3)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -1.106      0  0.3006      0  0.6186E-01  0  0.9848E-02  0  0.1392E-02
+   (  1,  8,  8)  (  1,  2, 11)  (  1,  2, 13)  (  1,  2, 15)  (  1,  4, 14)
+  0 -0.1600E-03  1 -0.3106E-04
+   (  1,  7,  3)  (  1, 10,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    6
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  6, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  6, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  6, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  6, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  6, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    6, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    6, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    6, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =        9790.4199               STORAGE =         544.9432
+       CONSTANT HEAD =         479.0412         CONSTANT HEAD =          55.0568
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =       10269.4609              TOTAL IN =         599.9999
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =       10269.4639                 WELLS =         600.0000
+
+           TOTAL OUT =       10269.4639             TOTAL OUT =         600.0000
+
+            IN - OUT =      -2.9297E-03              IN - OUT =      -6.1035E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    6 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 5.40375E+05  9006.2      150.10      6.2543     1.71234E-02
+ STRESS PERIOD TIME 1.47880E+06  24647.      410.78      17.116     4.68604E-02
+         TOTAL TIME 1.47880E+06  24647.      410.78      17.116     4.68604E-02
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   7 IN STRESS PERIOD    1
+     7 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.2320      0 -0.2130E-01  0 -0.2828E-02  0 -0.4177E-03  0  0.8088E-04
+   (  1,  8,  8)  (  1, 11,  1)  (  1,  3, 15)  (  1,  2, 15)  (  1,  8,  2)
+  0  0.1347E-04  1  0.2576E-05
+   (  1, 11,  2)  (  1, 14,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1   1.235      0  0.3625      0  0.8262E-01  0 -0.1357E-01  0  0.2513E-02
+   (  1,  2,  9)  (  1,  2, 12)  (  1,  2, 15)  (  1,  8,  2)  (  1,  4, 14)
+  0 -0.4335E-03  1 -0.8095E-04
+   (  1,  5, 14)  (  1, 11,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    7
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  7, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  7, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  7, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  7, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  7, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    7, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    7, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    7, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       14494.1992               STORAGE =         501.3888
+       CONSTANT HEAD =        1404.1609         CONSTANT HEAD =          98.6110
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =       15898.3604              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =       15898.3652                 WELLS =         600.0000
+
+           TOTAL OUT =       15898.3652             TOTAL OUT =         600.0000
+
+            IN - OUT =      -4.8828E-03              IN - OUT =      -1.8311E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    7 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 8.10562E+05  13509.      225.16      9.3815     2.56852E-02
+ STRESS PERIOD TIME 2.28936E+06  38156.      635.93      26.497     7.25456E-02
+         TOTAL TIME 2.28936E+06  38156.      635.93      26.497     7.25456E-02
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   8 IN STRESS PERIOD    1
+     8 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.2372      0 -0.2605E-01  0  0.3885E-02  0  0.7851E-03  0  0.1493E-03
+   (  1,  9,  8)  (  1, 14,  1)  (  1,  9,  1)  (  1,  6,  2)  (  1, 11,  2)
+  0  0.3193E-04  0  0.4238E-05  1  0.7992E-06
+   (  1, 15,  1)  (  1, 13,  4)  (  1,  8, 13)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -1.465      0  0.4296      0 -0.1171      0 -0.1782E-01  0  0.5064E-02
+   (  1,  4,  1)  (  1,  2, 12)  (  1,  6,  2)  (  1, 10,  2)  (  1,  4, 14)
+  0 -0.1093E-02  0  0.2109E-03  1  0.4521E-04
+   (  1,  5, 14)  (  1,  5, 13)  (  1,  2,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    8
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  8, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  8, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  8, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  8, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  8, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    8, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    8, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    8, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       20786.1680               STORAGE =         447.1188
+       CONSTANT HEAD =        3555.5435         CONSTANT HEAD =         152.8812
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =       24341.7109              TOTAL IN =         599.9999
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =       24341.7168                 WELLS =         600.0000
+
+           TOTAL OUT =       24341.7168             TOTAL OUT =         600.0000
+
+            IN - OUT =      -5.8594E-03              IN - OUT =      -6.1035E-05
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    8 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 1.21584E+06  20264.      337.73      14.072     3.85277E-02
+ STRESS PERIOD TIME 3.50521E+06  58420.      973.67      40.570     0.11107    
+         TOTAL TIME 3.50521E+06  58420.      973.67      40.570     0.11107    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP   9 IN STRESS PERIOD    1
+     8 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.2650      0 -0.3438E-01  0  0.6289E-02  0  0.1366E-02  0 -0.2258E-03
+   (  1, 11,  8)  (  1,  5, 15)  (  1, 11,  1)  (  1,  9,  3)  (  1, 15, 10)
+  0  0.6631E-04  0 -0.1462E-04  1  0.2716E-05
+   (  1, 15,  1)  (  1,  3,  2)  (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -2.259      0  0.5556      0  0.1844      0  0.4271E-01  0  0.1347E-01
+   (  1,  4,  1)  (  1,  2, 15)  (  1,  2, 15)  (  1,  5, 14)  (  1,  4, 14)
+  0  0.3057E-02  0 -0.5719E-03  1  0.1626E-03
+   (  1,  3,  2)  (  1,  5, 14)  (  1,  2,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP    9
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP  9, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP  9, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP  9, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP  9, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP  9, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP    9, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP    9, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP    9, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       28924.0098               STORAGE =         385.5266
+       CONSTANT HEAD =        8082.7241         CONSTANT HEAD =         214.4731
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =       37006.7344              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =       37006.7422                 WELLS =         600.0000
+
+           TOTAL OUT =       37006.7422             TOTAL OUT =         600.0000
+
+            IN - OUT =      -7.8125E-03              IN - OUT =      -2.4414E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP    9 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 1.82376E+06  30396.      506.60      21.108     5.77916E-02
+ STRESS PERIOD TIME 5.32897E+06  88816.      1480.3      61.678     0.16886    
+         TOTAL TIME 5.32897E+06  88816.      1480.3      61.678     0.16886    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  10 IN STRESS PERIOD    1
+     9 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.3372      0 -0.5112E-01  0  0.9371E-02  0  0.2200E-02  0 -0.6029E-03
+   (  1, 15,  8)  (  1,  6, 15)  (  1, 13,  1)  (  1,  9,  3)  (  1, 15,  9)
+  0 -0.1261E-03  0  0.3001E-04  0 -0.6989E-05  1 -0.2340E-05
+   (  1,  3,  1)  (  1,  9,  4)  (  1, 14,  9)  (  1, 14,  5)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -2.981      0 -0.8362      0  0.3193      0  0.8739E-01  0  0.2558E-01
+   (  1,  4,  1)  (  1,  3,  2)  (  1,  2, 15)  (  1,  2, 15)  (  1,  3,  2)
+  0  0.6146E-02  0  0.1517E-02  0  0.4487E-03  1  0.1885E-03
+   (  1,  3,  2)  (  1,  6, 13)  (  1,  2,  2)  (  1,  2,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   10
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 10, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 10, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 10, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 10, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 10, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   10, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   10, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   10, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       38998.5977               STORAGE =         318.1860
+       CONSTANT HEAD =       17005.6719         CONSTANT HEAD =         281.8138
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =       56004.2695              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =       56004.2812                 WELLS =         600.0000
+
+           TOTAL OUT =       56004.2812             TOTAL OUT =         600.0000
+
+            IN - OUT =      -1.1719E-02              IN - OUT =      -1.8311E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   10 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 2.73565E+06  45594.      759.90      31.663     8.66874E-02
+ STRESS PERIOD TIME 8.06462E+06 1.34410E+05  2240.2      93.340     0.25555    
+         TOTAL TIME 8.06462E+06 1.34410E+05  2240.2      93.340     0.25555    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  11 IN STRESS PERIOD    1
+    10 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.4232      0 -0.7445E-01  0 -0.1265E-01  0 -0.3989E-02  0 -0.1078E-02
+   (  1, 15,  1)  (  1,  7, 15)  (  1,  4, 15)  (  1,  3, 15)  (  1, 15,  9)
+  0  0.2672E-03  0  0.6117E-04  0  0.1902E-04  0  0.5179E-05  1 -0.1523E-05
+   (  1, 11,  2)  (  1,  9,  4)  (  1, 13,  2)  (  1,  6, 14)  (  1, 12,  8)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -3.706      0   1.065      0  0.4847      0  0.1840      0  0.5306E-01
+   (  1,  5,  1)  (  1,  3, 15)  (  1,  2, 15)  (  1,  2, 15)  (  1,  5, 14)
+  0  0.1666E-01  0 -0.3535E-02  0 -0.1304E-02  0  0.3382E-03  1  0.1488E-03
+   (  1,  4, 14)  (  1,  6, 14)  (  1,  5, 14)  (  1,  5, 13)  (  1,  2,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   11
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 11, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 11, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 11, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 11, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 11, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   11, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   11, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   11, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       50683.6094               STORAGE =         246.0321
+       CONSTANT HEAD =       33816.9688         CONSTANT HEAD =         353.9678
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =       84500.5781              TOTAL IN =         599.9999
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =       84500.5938                 WELLS =         600.0000
+
+           TOTAL OUT =       84500.5938             TOTAL OUT =         600.0000
+
+            IN - OUT =      -1.5625E-02              IN - OUT =      -1.2207E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   11 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 4.10347E+06  68391.      1139.9      47.494     0.13003    
+ STRESS PERIOD TIME 1.21681E+07 2.02801E+05  3380.0      140.83     0.38558    
+         TOTAL TIME 1.21681E+07 2.02801E+05  3380.0      140.83     0.38558    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  12 IN STRESS PERIOD    1
+    10 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.4650      0 -0.9698E-01  0 -0.2093E-01  0 -0.6468E-02  0  0.2360E-02
+   (  1, 15,  1)  (  1,  9, 15)  (  1,  5, 15)  (  1,  3, 15)  (  1, 13,  1)
+  0 -0.5586E-03  0  0.1425E-03  0  0.5844E-04  0  0.1350E-04  1 -0.4764E-05
+   (  1,  7, 14)  (  1, 12,  2)  (  1,  9,  4)  (  1, 11, 13)  (  1, 12, 14)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -4.092      0   1.353      0  0.6536      0  0.3160      0  0.9439E-01
+   (  1,  5,  1)  (  1,  4, 15)  (  1,  3, 15)  (  1,  2, 15)  (  1,  2, 15)
+  0  0.3147E-01  0  0.1228E-01  0 -0.3932E-02  0 -0.9713E-03  1  0.3462E-03
+   (  1,  4, 14)  (  1,  4, 14)  (  1,  6, 14)  (  1,  5, 14)  (  1, 15, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   12
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 12, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 12, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 12, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 12, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 12, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   12, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   12, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   12, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       62988.7461               STORAGE =         172.7260
+       CONSTANT HEAD =       64256.2734         CONSTANT HEAD =         427.2736
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =      127245.0156              TOTAL IN =         599.9996
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =      127245.0625                 WELLS =         600.0000
+
+           TOTAL OUT =      127245.0625             TOTAL OUT =         600.0000
+
+            IN - OUT =      -4.6875E-02              IN - OUT =      -4.2725E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   12 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 6.15520E+06 1.02587E+05  1709.8      71.241     0.19505    
+ STRESS PERIOD TIME 1.83233E+07 3.05388E+05  5089.8      212.08     0.58063    
+         TOTAL TIME 1.83233E+07 3.05388E+05  5089.8      212.08     0.58063    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  13 IN STRESS PERIOD    1
+    11 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.4323      0 -0.1067      0 -0.2920E-01  0 -0.9273E-02  0  0.3528E-02
+   (  1, 15,  1)  (  1, 10, 15)  (  1,  6, 15)  (  1,  4, 15)  (  1, 14,  1)
+  0 -0.9483E-03  0  0.3689E-03  0 -0.9253E-04  0 -0.3419E-04  0 -0.1046E-04
+   (  1,  8, 14)  (  1, 14,  1)  (  1, 10, 12)  (  1, 14, 10)  (  1, 11, 11)
+  1  0.3200E-05
+   (  1,  8,  8)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -3.851      0   1.485      0  0.8276      0  0.4070      0  0.1507    
+   (  1,  5,  1)  (  1,  5, 15)  (  1,  3, 15)  (  1,  2, 15)  (  1,  2, 15)
+  0  0.6081E-01  0  0.2443E-01  0  0.8612E-02  0 -0.2530E-02  0  0.7591E-03
+   (  1,  5, 14)  (  1,  4, 14)  (  1,  4, 14)  (  1,  6, 14)  (  1,  6, 13)
+  1 -0.2757E-03
+   (  1,  5, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   13
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 13, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 13, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 13, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 13, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 13, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   13, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   13, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   13, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       74319.7812               STORAGE =         106.0351
+       CONSTANT HEAD =      117041.9219         CONSTANT HEAD =         493.9647
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =      191361.7031              TOTAL IN =         599.9997
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =      191361.7656                 WELLS =         600.0000
+
+           TOTAL OUT =      191361.7656             TOTAL OUT =         600.0000
+
+            IN - OUT =      -6.2500E-02              IN - OUT =      -3.0518E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   13 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 9.23281E+06 1.53880E+05  2564.7      106.86     0.29257    
+ STRESS PERIOD TIME 2.75561E+07 4.59268E+05  7654.5      318.94     0.87320    
+         TOTAL TIME 2.75561E+07 4.59268E+05  7654.5      318.94     0.87320    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  14 IN STRESS PERIOD    1
+    12 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.3302      0 -0.9523E-01  0 -0.3205E-01  0 -0.1048E-01  0 -0.3250E-02
+   (  1, 15,  1)  (  1, 11, 15)  (  1,  7, 15)  (  1,  4, 15)  (  1, 11, 13)
+  0 -0.1102E-02  0 -0.2986E-03  0  0.1650E-03  0 -0.5744E-04  0  0.2369E-04
+   (  1,  8, 14)  (  1, 12, 12)  (  1, 14,  1)  (  1, 15,  2)  (  1, 14,  1)
+  0 -0.5804E-05  1  0.3819E-05
+   (  1, 15,  2)  (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -2.962      0   1.332      0  0.7929      0  0.3981      0  0.1719    
+   (  1,  5,  1)  (  1,  6, 15)  (  1,  3, 15)  (  1,  2, 15)  (  1,  2, 15)
+  0  0.6498E-01  0  0.2410E-01  0  0.1209E-01  0 -0.3892E-02  0  0.1300E-02
+   (  1,  5, 14)  (  1,  5, 14)  (  1,  4, 14)  (  1,  6, 14)  (  1,  6, 13)
+  0  0.4327E-03  1  0.1797E-03
+   (  1,  5, 13)  (  1,  2,  2)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   14
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 14, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 14, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 14, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 14, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 14, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   14, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   14, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   14, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       83078.9844               STORAGE =          54.6453
+       CONSTANT HEAD =      204457.7500         CONSTANT HEAD =         545.3545
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =      287536.7500              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =      287536.8125                 WELLS =         600.0000
+
+           TOTAL OUT =      287536.8125             TOTAL OUT =         600.0000
+
+            IN - OUT =      -6.2500E-02              IN - OUT =      -1.8311E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   14 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 1.38492E+07 2.30820E+05  3847.0      160.29     0.43885    
+ STRESS PERIOD TIME 4.14053E+07 6.90088E+05  11501.      479.23      1.3121    
+         TOTAL TIME 4.14053E+07 6.90088E+05  11501.      479.23      1.3121    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  15 IN STRESS PERIOD    1
+    12 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.1995      0 -0.6671E-01  0 -0.2617E-01  0 -0.8737E-02  0 -0.2644E-02
+   (  1, 15,  1)  (  1, 12, 15)  (  1,  7, 15)  (  1,  5, 15)  (  1, 11, 13)
+  0  0.1316E-02  0 -0.4227E-03  0  0.1976E-03  0 -0.3794E-04  0  0.2176E-04
+   (  1, 14,  1)  (  1, 15,  2)  (  1, 15,  1)  (  1,  5, 14)  (  1, 15,  1)
+  0 -0.5864E-05  1  0.3707E-05
+   (  1, 15,  1)  (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1  -1.789      0  0.9322      0  0.6008      0  0.3105      0  0.1572    
+   (  1,  5,  1)  (  1,  6, 15)  (  1,  4, 15)  (  1,  3, 15)  (  1,  2, 15)
+  0  0.7196E-01  0  0.3398E-01  0  0.1271E-01  0  0.4548E-02  0 -0.1384E-02
+   (  1,  2, 15)  (  1,  5, 14)  (  1,  4, 14)  (  1,  4, 14)  (  1,  6, 14)
+  0  0.4856E-03  1 -0.1784E-03
+   (  1,  6, 13)  (  1,  5, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   15
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 15, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 15, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 15, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 15, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 15, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   15, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   15, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   15, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       88531.5234               STORAGE =          22.6776
+       CONSTANT HEAD =      343267.7500         CONSTANT HEAD =         577.3223
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =      431799.2812              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =      431799.4062                 WELLS =         600.0000
+
+           TOTAL OUT =      431799.4062             TOTAL OUT =         600.0000
+
+            IN - OUT =          -0.1250              IN - OUT =      -1.8311E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   15 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 2.07738E+07 3.46230E+05  5770.5      240.44     0.65828    
+ STRESS PERIOD TIME 6.21791E+07 1.03632E+06  17272.      719.67      1.9703    
+         TOTAL TIME 6.21791E+07 1.03632E+06  17272.      719.67      1.9703    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  16 IN STRESS PERIOD    1
+    11 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.9210E-01  0 -0.3523E-01  0 -0.1546E-01  0 -0.5271E-02  0 -0.1537E-02
+   (  1, 15,  1)  (  1, 12, 15)  (  1,  8, 15)  (  1,  5, 15)  (  1,  3, 15)
+  0  0.8884E-03  0 -0.2673E-03  0  0.1131E-03  0 -0.2778E-04  0  0.1584E-04
+   (  1, 14,  1)  (  1,  8, 14)  (  1, 14,  1)  (  1,  5, 14)  (  1, 15,  1)
+  1 -0.5327E-05
+   (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.8311      0  0.4872      0  0.3288      0  0.1865      0  0.9901E-01
+   (  1,  6,  1)  (  1,  7, 15)  (  1,  4, 15)  (  1,  3, 15)  (  1,  2, 15)
+  0  0.4840E-01  0  0.1995E-01  0  0.7708E-02  0  0.3283E-02  0 -0.9916E-03
+   (  1,  2, 15)  (  1,  5, 14)  (  1,  5, 14)  (  1,  4, 14)  (  1,  6, 14)
+  1  0.4365E-03
+   (  1,  4, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   16
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 16, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 16, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 16, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 16, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 16, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   16, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   16, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   16, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       91157.7891               STORAGE =           7.2819
+       CONSTANT HEAD =      557035.1875         CONSTANT HEAD =         592.7176
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =      648193.0000              TOTAL IN =         599.9995
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =      648193.3125                 WELLS =         600.0000
+
+           TOTAL OUT =      648193.3125             TOTAL OUT =         600.0000
+
+            IN - OUT =          -0.3125              IN - OUT =      -4.8828E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   16 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 3.11607E+07 5.19345E+05  8655.8      360.66     0.98742    
+ STRESS PERIOD TIME 9.33398E+07 1.55566E+06  25928.      1080.3      2.9578    
+         TOTAL TIME 9.33398E+07 1.55566E+06  25928.      1080.3      2.9578    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  17 IN STRESS PERIOD    1
+    11 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.3156E-01  0 -0.1362E-01  0 -0.6341E-02  0 -0.2205E-02  0 -0.7228E-03
+   (  1, 15,  1)  (  1, 13, 15)  (  1,  9, 15)  (  1,  5, 15)  (  1,  4, 15)
+  0  0.3531E-03  0 -0.1171E-03  0  0.4854E-04  0 -0.1281E-04  0  0.7411E-05
+   (  1, 14,  1)  (  1,  8, 14)  (  1, 14,  1)  (  1,  5, 14)  (  1, 15,  1)
+  1 -0.2388E-05
+   (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.2857      0  0.1835      0  0.1301      0  0.7717E-01  0  0.4145E-01
+   (  1,  6,  1)  (  1,  8, 15)  (  1,  5, 15)  (  1,  3, 15)  (  1,  2, 15)
+  0  0.2105E-01  0  0.8637E-02  0  0.3644E-02  0  0.1503E-02  0 -0.4462E-03
+   (  1,  2, 15)  (  1,  6, 14)  (  1,  5, 14)  (  1,  4, 14)  (  1,  6, 14)
+  1  0.2108E-03
+   (  1,  4, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   17
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 17, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 17, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 17, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 17, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 17, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   17, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   17, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   17, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       92102.2031               STORAGE =           1.7457
+       CONSTANT HEAD =      880681.5000         CONSTANT HEAD =         598.2541
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =      972783.6875              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =      972784.1250                 WELLS =         600.0000
+
+           TOTAL OUT =      972784.1250             TOTAL OUT =         600.0000
+
+            IN - OUT =          -0.4375              IN - OUT =      -1.8311E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   17 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 4.67411E+07 7.79018E+05  12984.      540.98      1.4811    
+ STRESS PERIOD TIME 1.40081E+08 2.33468E+06  38911.      1621.3      4.4389    
+         TOTAL TIME 1.40081E+08 2.33468E+06  38911.      1621.3      4.4389    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  18 IN STRESS PERIOD    1
+    10 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.7848E-02  0 -0.3724E-02  0 -0.1825E-02  0 -0.6529E-03  0 -0.2252E-03
+   (  1, 15,  1)  (  1, 13, 15)  (  1,  9, 15)  (  1,  6, 15)  (  1,  4, 15)
+  0  0.9603E-04  0 -0.3401E-04  0  0.1447E-04  0 -0.3889E-05  1  0.2375E-05
+   (  1, 14,  1)  (  1,  8, 14)  (  1, 14,  1)  (  1,  5, 14)  (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.7108E-01  0  0.4935E-01  0  0.3631E-01  0  0.2192E-01  0  0.1182E-01
+   (  1,  6,  1)  (  1,  8, 15)  (  1,  5, 15)  (  1,  3, 15)  (  1,  2, 15)
+  0  0.6187E-02  0  0.2572E-02  0  0.1123E-02  0  0.4541E-03  1  0.2159E-03
+   (  1,  2, 15)  (  1,  6, 14)  (  1,  5, 14)  (  1,  4, 14)  (  1,  4, 14)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   18
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 18, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 18, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 18, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 18, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 18, STRESS PERIOD   1
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   18, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   18, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   18, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       92348.2734               STORAGE =           0.3032
+       CONSTANT HEAD =     1367321.5000         CONSTANT HEAD =         599.6965
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =     1459669.7500              TOTAL IN =         599.9998
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =     1459670.3750                 WELLS =         600.0000
+
+           TOTAL OUT =     1459670.3750             TOTAL OUT =         600.0000
+
+            IN - OUT =          -0.6250              IN - OUT =      -2.4414E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   18 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 7.01116E+07 1.16853E+06  19475.      811.48      2.2217    
+ STRESS PERIOD TIME 2.10193E+08 3.50321E+06  58387.      2432.8      6.6606    
+         TOTAL TIME 2.10193E+08 3.50321E+06  58387.      2432.8      6.6606    
+1
+ 
+ SOLVING FOR HEAD 
+     2 CALLS TO PCG ROUTINE FOR TIME STEP  19 IN STRESS PERIOD    1
+     8 TOTAL ITERATIONS
+
+ MAXIMUM HEAD CHANGE FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE    HEAD CHANGE 
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.1391E-02  0 -0.7075E-03  0 -0.3585E-03  0 -0.1319E-03  0 -0.4666E-04
+   (  1, 15,  1)  (  1, 13, 15)  (  1,  9, 15)  (  1,  6, 15)  (  1,  4, 15)
+  0  0.1813E-04  0 -0.6777E-05  1  0.3030E-05
+   (  1, 14,  1)  (  1,  9, 14)  (  1, 15,  1)
+
+ MAXIMUM RESIDUAL FOR EACH ITERATION (1 INDICATES THE FIRST INNER ITERATION):
+
+    RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL       RESIDUAL    
+   LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL  LAYER,ROW,COL
+ ---------------------------------------------------------------------------
+  1 -0.1256E-01  0  0.9233E-02  0  0.6975E-02  0  0.4270E-02  0  0.2305E-02
+   (  1,  6,  1)  (  1,  8, 15)  (  1,  5, 15)  (  1,  3, 15)  (  1,  2, 15)
+  0  0.1233E-02  0  0.5146E-03  1  0.3130E-03
+   (  1,  2, 15)  (  1,  6, 14)  (  1,  2, 15)
+
+
+
+ OUTPUT CONTROL FOR STRESS PERIOD    1   TIME STEP   19
+    PRINT HEAD FOR ALL LAYERS
+    SAVE HEAD FOR ALL LAYERS
+    SAVE DRAWDOWN FOR ALL LAYERS
+    SAVE BUDGET
+    PRINT BUDGET
+ UBDSV1 SAVING "         STORAGE" ON UNIT   9 AT TIME STEP 19, STRESS PERIOD   1
+ UBDSV2 SAVING "   CONSTANT HEAD" ON UNIT   9 AT TIME STEP 19, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW RIGHT FACE " ON UNIT   9 AT TIME STEP 19, STRESS PERIOD   1
+ UBDSV1 SAVING "FLOW FRONT FACE " ON UNIT   9 AT TIME STEP 19, STRESS PERIOD   1
+ UBDSV4 SAVING "           WELLS" ON UNIT   9 AT TIME STEP 19, STRESS PERIOD   1
+1
+              HEAD IN LAYER   1 AT END OF TIME STEP  19 IN STRESS PERIOD    1
+  ---------------------------------------------------------------------------
+
+            1           2           3           4           5           6           7           8           9          10
+           11          12          13          14          15
+ ........................................................................................................................
+   1    0.000       0.000       0.000       0.000       0.000       0.000       0.000       0.000       0.000       0.000    
+        0.000       0.000       0.000       0.000       0.000    
+   2  -0.3590     -0.3650     -0.3764     -0.3924     -0.4110     -0.4291     -0.4428     -0.4480     -0.4428     -0.4291    
+      -0.4110     -0.3924     -0.3764     -0.3650     -0.3590    
+   3  -0.7121     -0.7244     -0.7484     -0.7822     -0.8224     -0.8627     -0.8942     -0.9065     -0.8942     -0.8627    
+      -0.8224     -0.7822     -0.7484     -0.7244     -0.7121    
+   4   -1.053      -1.072      -1.110      -1.166      -1.234      -1.305      -1.365      -1.390      -1.365      -1.305    
+       -1.234      -1.166      -1.110      -1.072      -1.053    
+   5   -1.374      -1.401      -1.455      -1.536      -1.641      -1.760      -1.869      -1.923      -1.869      -1.760    
+       -1.641      -1.536      -1.455      -1.401      -1.374    
+   6   -1.669      -1.703      -1.774      -1.883      -2.035      -2.225      -2.430      -2.562      -2.430      -2.225    
+       -2.035      -1.883      -1.774      -1.703      -1.669    
+   7   -1.928      -1.969      -2.053      -2.189      -2.389      -2.675      -3.063      -3.466      -3.063      -2.675    
+       -2.389      -2.189      -2.053      -1.969      -1.928    
+   8   -2.148      -2.191      -2.281      -2.429      -2.658      -3.023      -3.682      -5.175      -3.682      -3.023    
+       -2.658      -2.429      -2.281      -2.191      -2.148    
+   9   -2.324      -2.365      -2.451      -2.588      -2.790      -3.078      -3.467      -3.870      -3.467      -3.078    
+       -2.790      -2.588      -2.451      -2.365      -2.324    
+  10   -2.460      -2.496      -2.569      -2.682      -2.837      -3.031      -3.238      -3.371      -3.238      -3.031    
+       -2.837      -2.682      -2.569      -2.496      -2.460    
+  11   -2.559      -2.589      -2.648      -2.735      -2.846      -2.970      -3.083      -3.138      -3.083      -2.970    
+       -2.846      -2.735      -2.648      -2.589      -2.559    
+  12   -2.629      -2.653      -2.698      -2.763      -2.841      -2.921      -2.987      -3.014      -2.987      -2.921    
+       -2.841      -2.763      -2.698      -2.653      -2.629    
+  13   -2.676      -2.694      -2.729      -2.778      -2.833      -2.888      -2.929      -2.944      -2.929      -2.888    
+       -2.833      -2.778      -2.729      -2.694      -2.676    
+  14   -2.704      -2.719      -2.747      -2.785      -2.827      -2.867      -2.896      -2.906      -2.896      -2.867    
+       -2.827      -2.785      -2.747      -2.719      -2.704    
+  15   -2.717      -2.730      -2.755      -2.788      -2.824      -2.857      -2.881      -2.889      -2.881      -2.857    
+       -2.824      -2.788      -2.755      -2.730      -2.717    
+
+ HEAD WILL BE SAVED ON UNIT   37 AT END OF TIME STEP   19, STRESS PERIOD    1
+
+ DRAWDOWN WILL BE SAVED ON UNIT   38 AT END OF TIME STEP   19, STRESS PERIOD    1
+1
+  VOLUMETRIC BUDGET FOR ENTIRE MODEL AT END OF TIME STEP   19, STRESS PERIOD   1
+  ------------------------------------------------------------------------------
+
+     CUMULATIVE VOLUMES      L**3       RATES FOR THIS TIME STEP      L**3/T
+     ------------------                 ------------------------
+
+           IN:                                      IN:
+           ---                                      ---
+             STORAGE =       92393.6406               STORAGE =       3.7270E-02
+       CONSTANT HEAD =     2097604.7500         CONSTANT HEAD =         599.9621
+               WELLS =           0.0000                 WELLS =           0.0000
+
+            TOTAL IN =     2189998.5000              TOTAL IN =         599.9994
+
+          OUT:                                     OUT:
+          ----                                     ----
+             STORAGE =           0.0000               STORAGE =           0.0000
+       CONSTANT HEAD =           0.0000         CONSTANT HEAD =           0.0000
+               WELLS =     2189999.7500                 WELLS =         600.0000
+
+           TOTAL OUT =     2189999.7500             TOTAL OUT =         600.0000
+
+            IN - OUT =          -1.2500              IN - OUT =      -6.1035E-04
+
+ PERCENT DISCREPANCY =          -0.00     PERCENT DISCREPANCY =          -0.00
+
+
+
+
+
+
+         TIME SUMMARY AT END OF TIME STEP   19 IN STRESS PERIOD    1
+                    SECONDS     MINUTES      HOURS       DAYS        YEARS
+                    -----------------------------------------------------------
+   TIME STEP LENGTH 1.05167E+08 1.75279E+06  29213.      1217.2      3.3326    
+ STRESS PERIOD TIME 3.15360E+08 5.25600E+06  87600.      3650.0      9.9932    
+         TOTAL TIME 3.15360E+08 5.25600E+06  87600.      3650.0      9.9932    
+1
+
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/10/12 12:39:43
+ Elapsed run time:  0.100 Seconds
+
