@@ -23,7 +23,9 @@ print("flopy version: {}".format(flopy.__version__))
 
 # For this example, we will set up a temporary workspace.
 # Model input files and output files will reside here.
-#temp_dir = TemporaryDirectory()
+temp_dir = TemporaryDirectory()
+workspace = os.path.join(temp_dir.name, "mf6Well")
+
 workspace = os.path.join(".", "mf6Well")
 try: 
     os.mkdir(workspace) 
@@ -49,7 +51,7 @@ sim = flopy.mf6.MFSimulation(
 #%% Flopy temporal discretization object
 # Create the Flopy temporal discretization object
 ntinesteps = 19
-tdis = flopy.mf6.modflow.mftdis.ModflowTdis(
+tdis = flopy.mf6.ModflowTdis(
     sim, pname="tdis", time_units="DAYS", nper=1, 
     perioddata=[(3650, ntinesteps, 1.5)],
 )
@@ -60,12 +62,12 @@ model_nam_file = "{}.nam".format(gwf_name)
 gwf = flopy.mf6.ModflowGwf(sim, modelname="gwf_well_00", model_nam_file=model_nam_file)
 #%% Flopy iterative model solver (ims) Package object
 # Create the Flopy iterative model solver (ims) Package object
-ims = flopy.mf6.modflow.mfims.ModflowIms(sim, pname="ims", complexity="SIMPLE")
+ims = flopy.mf6.ModflowIms(sim, pname="ims", complexity="SIMPLE")
 #%% Flopy discretization (dis) Package object
 # Create the Flopy discretization (dis) Package object
 bot = -100
 delrow = delcol = 1000.
-dis = flopy.mf6.modflow.mfgwfdis.ModflowGwfdis(
+dis = flopy.mf6.ModflowGwfdis(
     gwf,
     pname="dis",
     nlay=nlay,
