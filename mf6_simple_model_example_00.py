@@ -59,10 +59,14 @@ tdis = flopy.mf6.ModflowTdis(
 # Create the Flopy groundwater flow (gwf) model object
 gwf_name = "gwf_well_00"
 model_nam_file = "{}.nam".format(gwf_name)
-gwf = flopy.mf6.ModflowGwf(sim, modelname="gwf_well_00", model_nam_file=model_nam_file)
+gwf = flopy.mf6.ModflowGwf(sim, 
+    modelname="gwf_well_00", 
+    model_nam_file=model_nam_file)
 #%% Flopy iterative model solver (ims) Package object
 # Create the Flopy iterative model solver (ims) Package object
-ims = flopy.mf6.ModflowIms(sim, pname="ims", complexity="SIMPLE")
+ims = flopy.mf6.ModflowIms(sim, 
+    pname="ims", 
+    complexity="SIMPLE")
 #%% Flopy discretization (dis) Package object
 # Create the Flopy discretization (dis) Package object
 bot = -100
@@ -81,11 +85,17 @@ dis = flopy.mf6.ModflowGwfdis(
 #%% Flopy initial conditions (ic) Package object
 # Create the Flopy initial conditions (ic) Package object
 start = initial_head
-ic = flopy.mf6.modflow.mfgwfic.ModflowGwfic(gwf, pname="ic", strt=start)
+ic = flopy.mf6.modflow.mfgwfic.ModflowGwfic(gwf, 
+    pname="ic", 
+    strt=start)
 #%% Flopy node property (npf) Package object
 # Create the Flopy node property (npf) Package object
 npf = flopy.mf6.modflow.mfgwfnpf.ModflowGwfnpf(
-    gwf, pname="npf", icelltype=1, k=hk, save_flows=True
+    gwf, 
+    pname="npf", 
+    icelltype=1, 
+    k=hk, 
+    save_flows=True
 )
 #%% Flopy storage (sto) Package object
 # Create the Flopy storage (sto) Package object
