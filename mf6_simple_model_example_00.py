@@ -45,7 +45,8 @@ hk = 1.0 # m/d
 # Create the Flopy simulation object
 sim = flopy.mf6.MFSimulation(
     sim_name=model_name, 
-    exe_name=os.path.join("bin","mf6.exe"), 
+    exe_name="mf6.exe", 
+    # exe_name=os.path.join("bin","mf6.exe"), 
     version="mf6", sim_ws=workspace
 )
 #%% Flopy temporal discretization object
