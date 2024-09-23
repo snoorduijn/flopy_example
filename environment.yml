@@ -4,3 +4,4 @@ channels:
 dependencies:
   - python=3.8
   - flopy=3.4.2
+  - scipy=1.14.1
